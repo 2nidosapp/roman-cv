@@ -22,6 +22,7 @@ export default function CvPage() {
             <span>{profile.location}</span>
             <span>{profile.contact.email}</span>
             <span>{profile.contact.github.replace('https://', '')}</span>
+            <span>{profile.contact.website.replace('https://', '')}</span>
           </div>
         </header>
 
