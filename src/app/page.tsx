@@ -1,66 +1,128 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from 'next/link';
+
+import { experience, profile, projects, skillGroups } from '@/data/profile';
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+    <main className="site">
+      <header className="nav">
+        <Link href="/" className="brand">
+          {profile.name}
+        </Link>
+
+        <nav>
+          <a href="#work">Work</a>
+          <a href="#stack">Stack</a>
+          <a href="#experience">Experience</a>
+          <Link href="/cv">CV</Link>
+        </nav>
+      </header>
+
+      <section className="hero">
+        <p className="eyebrow">{profile.location}</p>
+        <h1>{profile.role}</h1>
+        <p className="heroLead">{profile.headline}</p>
+
+        <div className="heroActions">
+          <Link href="/cv" className="primaryAction">
+            View CV
+          </Link>
+          <a href="#work" className="secondaryAction">
+            Selected work
           </a>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="intro">
+        <p>{profile.summary}</p>
+
+        <div className="focusGrid">
+          {profile.focus.map((item) => (
+            <span key={item}>{item}</span>
+          ))}
+        </div>
+      </section>
+
+      <section className="section" id="work">
+        <div className="sectionHeader">
+          <p className="eyebrow">Selected work</p>
+          <h2>Real systems, built end to end.</h2>
+        </div>
+
+        <div className="projectGrid">
+          {projects.map((project) => (
+            <article className="projectCard" key={project.name}>
+              <div>
+                <p className="projectType">{project.type}</p>
+                <h3>{project.name}</h3>
+                <p>{project.summary}</p>
+              </div>
+
+              <div className="stackList">
+                {project.stack.map((item) => (
+                  <span key={item}>{item}</span>
+                ))}
+              </div>
+
+              <ul>
+                {project.highlights.map((highlight) => (
+                  <li key={highlight}>{highlight}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section" id="stack">
+        <div className="sectionHeader">
+          <p className="eyebrow">Technical stack</p>
+          <h2>Focused on TypeScript product engineering.</h2>
+        </div>
+
+        <div className="skillsGrid">
+          {skillGroups.map((group) => (
+            <article className="skillCard" key={group.title}>
+              <h3>{group.title}</h3>
+              <div>
+                {group.items.map((item) => (
+                  <span key={item}>{item}</span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section" id="experience">
+        <div className="sectionHeader">
+          <p className="eyebrow">Experience</p>
+          <h2>Product ownership, learning speed, and delivery discipline.</h2>
+        </div>
+
+        <div className="timeline">
+          {experience.map((item) => (
+            <article key={item.title}>
+              <span>{item.period}</span>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <footer className="footer">
+        <div>
+          <p className="eyebrow">Contact</p>
+          <h2>Available for software engineering roles.</h2>
+        </div>
+
+        <div className="footerLinks">
+          <a href={`mailto:${profile.contact.email}`}>{profile.contact.email}</a>
+          <a href={profile.contact.github}>GitHub</a>
+          <Link href="/cv">CV page</Link>
+        </div>
+      </footer>
+    </main>
   );
 }
