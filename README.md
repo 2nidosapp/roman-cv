@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Roman Kostyuchenko · Portfolio & CV
 
-## Getting Started
+Personal portfolio and CV website for software engineering applications.
 
-First, run the development server:
+The project presents selected product work, technical stack, working style, and a print-friendly CV page that can be exported as a PDF.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Purpose
+
+This site works as a structured source of truth for my professional profile:
+
+* portfolio landing page;
+* selected software projects;
+* technical stack overview;
+* working style and experience;
+* print-friendly CV page.
+
+The CV page is designed to be opened in the browser and exported as a PDF.
+
+## Stack
+
+* Next.js
+* React
+* TypeScript
+* CSS
+* App Router
+* Static rendering
+
+## Routes
+
+```txt
+/     Portfolio landing page
+/cv   Print-friendly CV page
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Selected work
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The portfolio currently highlights:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* **VCOS · Vehicle Care OS** — vehicle-care operating system prototype built with Next.js, NestJS, PostgreSQL, Prisma, Docker, and Nx.
+* **DosNidos** — React Native / Expo mobile app for calm co-parenting coordination.
+* **J414** — multilingual B2B landing site with production contact form and deployment work.
 
-## Learn More
+## Running locally
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm install
+pnpm dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Open:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```txt
+http://localhost:3000
+```
 
-## Deploy on Vercel
+If port 3000 is busy, Next.js may start on another available port.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Build
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+pnpm build
+```
+
+## Exporting the CV as PDF
+
+Run the development server and open:
+
+```txt
+http://localhost:3000/cv
+```
+
+Then use the **Save as PDF** button or the browser print dialog.
+
+Recommended print settings:
+
+```txt
+Paper: A4
+Orientation: Portrait
+Headers and footers: disabled
+Background graphics: enabled
+```
+
+## Project structure
+
+```txt
+src/app/page.tsx          Main portfolio page
+src/app/cv/page.tsx       Print-friendly CV page
+src/app/globals.css       Global styling and print styles
+src/data/profile.ts       Profile, projects, skills, and experience data
+```
+
+## Notes
+
+The site is intentionally minimal: no CMS, no backend, no animations, and no unnecessary dependencies. The goal is clarity, fast iteration, and a professional presentation of real software work.
