@@ -1,13 +1,14 @@
 import Link from 'next/link';
 
 import { experience, profile, projects, skillGroups } from '@/data/profile';
+import { PrintButton } from './print-button';
 
 export default function CvPage() {
   return (
     <main className="cvPage">
       <div className="cvToolbar">
         <Link href="/">← Portfolio</Link>
-        <span>Use browser print → Save as PDF</span>
+        <PrintButton />
       </div>
 
       <article className="cvSheet">

@@ -564,3 +564,163 @@ a {
     page-break-inside: avoid;
   }
 }
+
+.printButton {
+  border: 1px solid rgba(9, 9, 9, 0.14);
+  border-radius: 999px;
+  background: #090909;
+  color: white;
+  padding: 0.65rem 1rem;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.printButton:hover {
+  background: #2a2927;
+}
+
+/* Compact CV print refinement */
+
+.cvSheet {
+  min-height: auto;
+}
+
+.cvSection {
+  padding: 14px 0;
+}
+
+.cvSection h2 {
+  margin-bottom: 8px;
+}
+
+.cvSection p,
+.cvSection li {
+  font-size: 0.92rem;
+}
+
+.cvProject + .cvProject {
+  margin-top: 12px;
+}
+
+.cvProjectHeader h3,
+.cvExperience h3 {
+  font-size: 1rem;
+}
+
+.cvProject p {
+  margin: 6px 0;
+}
+
+.cvProject ul {
+  margin-top: 6px;
+}
+
+.cvProject li + li {
+  margin-top: 3px;
+}
+
+.cvSkills p {
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.cvExperience p {
+  margin: 5px 0 0;
+}
+
+@page {
+  size: A4;
+  margin: 12mm;
+}
+
+@media print {
+  html,
+  body {
+    width: 210mm;
+    min-height: 297mm;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .cvSheet {
+    padding: 0;
+    font-size: 10.5pt;
+  }
+
+  .cvHeader {
+    padding-bottom: 12px;
+  }
+
+  .cvHeader h1 {
+    font-size: 25pt;
+  }
+
+  .cvHeader p {
+    font-size: 12pt;
+  }
+
+  .cvContact {
+    font-size: 8.6pt;
+  }
+
+  .cvSection {
+    padding: 9px 0;
+  }
+
+  .cvSection h2 {
+    font-size: 8.5pt;
+    margin-bottom: 5px;
+  }
+
+  .cvSection p,
+  .cvSection li {
+    font-size: 9.2pt;
+    line-height: 1.28;
+  }
+
+  .cvProject + .cvProject {
+    margin-top: 8px;
+  }
+
+  .cvProjectHeader h3,
+  .cvExperience h3 {
+    font-size: 10pt;
+  }
+
+  .cvProjectHeader span,
+  .cvExperience span,
+  .cvStack {
+    font-size: 8.5pt;
+  }
+
+  .cvProject p {
+    margin: 4px 0;
+  }
+
+  .cvProject ul {
+    margin: 4px 0 0;
+  }
+
+  .cvProject li + li {
+    margin-top: 1px;
+  }
+
+  .cvSkills p {
+    margin-bottom: 3px;
+    font-size: 9pt;
+    line-height: 1.24;
+  }
+
+  .cvExperience + .cvExperience {
+    margin-top: 7px;
+  }
+
+  .cvExperience p {
+    margin-top: 3px;
+  }
+}

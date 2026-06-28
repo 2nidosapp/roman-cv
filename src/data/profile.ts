@@ -15,9 +15,8 @@ export const profile = {
     'AI-assisted development workflows',
   ],
   contact: {
-    email: 'your-email@example.com',
-    github: 'https://github.com/your-github',
-    linkedin: '',
+    email: 'honomonodev@gmail.com',
+    github: 'https://github.com/2nidosapp',
   },
 };
 
