@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
@@ -22,7 +23,7 @@ export default async function LocalizedHome({ params }: LocalizedPageProps) {
     notFound();
   }
 
-  const { labels, experience, profile, projects, skillGroups } =
+  const { evidence, labels, experience, profile, projects, skillGroups } =
     getLocalizedProfile(localeParam);
 
   const homeHref = `/${localeParam}`;
@@ -65,6 +66,58 @@ export default async function LocalizedHome({ params }: LocalizedPageProps) {
         <div className="focusGrid">
           {profile.focus.map((item) => (
             <span key={item}>{item}</span>
+          ))}
+        </div>
+      </section>
+
+      <section className="section evidenceSection" aria-labelledby="evidence-title">
+        <div className="sectionHeader">
+          <p className="eyebrow">{evidence.eyebrow}</p>
+          <h2 id="evidence-title">{evidence.title}</h2>
+          <p className="sectionLead">{evidence.description}</p>
+        </div>
+
+        <div className="evidenceGrid">
+          {evidence.projects.map((project) => (
+            <article className="evidenceCard" key={project.name}>
+              <div className="evidenceContent">
+                <div>
+                  <p className="projectType">{project.label}</p>
+                  <h3>{project.name}</h3>
+                  <p>{project.summary}</p>
+                </div>
+
+                <div>
+                  <p className="evidenceStatus">{project.status}</p>
+                  <ul>
+                    {project.bullets.map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
+
+                  {project.href ? (
+                    <a
+                      className="evidenceAction"
+                      href={project.href}
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      {project.actionLabel}
+                    </a>
+                  ) : null}
+                </div>
+              </div>
+
+              <div className="evidenceVisual">
+                <Image
+                  src={project.image.src}
+                  alt={project.image.alt}
+                  width={1448}
+                  height={1086}
+                  sizes="(max-width: 760px) calc(100vw - 64px), (max-width: 1080px) 45vw, 31vw"
+                />
+              </div>
+            </article>
           ))}
         </div>
       </section>

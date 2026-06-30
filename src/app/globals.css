@@ -971,3 +971,220 @@ body {
     display: none !important;
   }
 }
+
+/* Product evidence */
+
+.sectionLead {
+  max-width: 720px;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 1.45vw, 1.3rem);
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+}
+
+.evidenceSection {
+  padding-top: 62px;
+}
+
+.evidenceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.evidenceCard {
+  display: grid;
+  gap: 24px;
+  min-height: 590px;
+  overflow: hidden;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 80% 0%, rgba(255, 138, 0, 0.09), transparent 32%),
+    linear-gradient(145deg, rgba(255, 254, 251, 0.96), rgba(246, 244, 239, 0.78));
+  box-shadow: 0 22px 70px rgba(8, 8, 8, 0.055);
+}
+
+.evidenceCard:nth-child(2) {
+  background:
+    radial-gradient(circle at 82% 0%, rgba(87, 220, 188, 0.15), transparent 34%),
+    linear-gradient(145deg, rgba(255, 254, 251, 0.96), rgba(238, 246, 243, 0.72));
+}
+
+.evidenceCard:nth-child(3) {
+  background:
+    radial-gradient(circle at 82% 0%, rgba(43, 124, 255, 0.12), transparent 34%),
+    linear-gradient(145deg, rgba(255, 254, 251, 0.96), rgba(237, 246, 255, 0.76));
+}
+
+.evidenceContent {
+  display: grid;
+  gap: 18px;
+}
+
+.evidenceContent h3 {
+  margin: 8px 0 10px;
+  font-size: clamp(2.1rem, 3.2vw, 3.45rem);
+  line-height: 0.95;
+  letter-spacing: -0.065em;
+}
+
+.evidenceContent p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.evidenceStatus {
+  color: var(--accent) !important;
+  font-size: 0.78rem;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.evidenceContent ul {
+  display: grid;
+  gap: 8px;
+  margin: 10px 0 0;
+  padding: 0;
+  color: var(--muted);
+  line-height: 1.45;
+  list-style: none;
+}
+
+.evidenceContent li {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.evidenceContent li::before {
+  width: 7px;
+  height: 7px;
+  margin-top: 0.45em;
+  border-radius: 999px;
+  background: var(--accent);
+  content: "";
+}
+
+.evidenceVisual {
+  align-self: end;
+  margin: 0 -12px -12px;
+  overflow: hidden;
+  border: 1px solid rgba(8, 8, 8, 0.08);
+  border-radius: 28px;
+  background: rgba(255, 254, 251, 0.72);
+  box-shadow: 0 18px 50px rgba(8, 8, 8, 0.075);
+}
+
+.evidenceVisual img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 1080px) {
+  .evidenceGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .evidenceCard {
+    min-height: auto;
+  }
+
+  .evidenceCard:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 760px) {
+  .evidenceGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .evidenceCard:nth-child(3) {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .evidenceCard {
+    gap: 20px;
+    padding: 20px;
+    border-radius: 26px;
+  }
+
+  .evidenceVisual {
+    margin: 0 -8px -8px;
+    border-radius: 22px;
+  }
+}
+
+
+.evidenceAction {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+  padding: 0 15px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 254, 251, 0.78);
+  color: var(--text);
+  font-size: 0.86rem;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+/* Evidence micro-interactions */
+
+@media (hover: hover) and (pointer: fine) {
+  .evidenceCard {
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .evidenceCard:hover {
+    border-color: rgba(8, 8, 8, 0.18);
+    box-shadow: 0 28px 90px rgba(8, 8, 8, 0.08);
+    transform: translateY(-4px);
+  }
+
+  .evidenceVisual img {
+    transition: transform 220ms ease;
+  }
+
+  .evidenceCard:hover .evidenceVisual img {
+    transform: scale(1.018);
+  }
+
+  .evidenceAction {
+    transition:
+      transform 160ms ease,
+      background 160ms ease,
+      border-color 160ms ease;
+  }
+
+  .evidenceAction:hover {
+    border-color: rgba(8, 8, 8, 0.2);
+    background: rgba(255, 254, 251, 0.96);
+    transform: translateY(-1px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .evidenceCard,
+  .evidenceVisual img,
+  .evidenceAction {
+    transition: none !important;
+    transform: none !important;
+  }
+}

@@ -28,12 +28,32 @@ type Labels = {
   liveSite: string;
 };
 
+type EvidenceProject = {
+  name: string;
+  label: string;
+  status: string;
+  summary: string;
+  bullets: string[];
+  href?: string;
+  actionLabel?: string;
+  image: {
+    src: string;
+    alt: string;
+  };
+};
+
 type LocalizedProfile = {
   labels: Labels;
   profile: typeof baseProfile;
   projects: typeof baseProjects;
   skillGroups: typeof baseSkillGroups;
   experience: typeof baseExperience;
+  evidence: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    projects: EvidenceProject[];
+  };
 };
 
 export const localizedProfiles = {
@@ -63,6 +83,67 @@ export const localizedProfiles = {
     projects: baseProjects,
     skillGroups: baseSkillGroups,
     experience: baseExperience,
+    evidence: {
+      eyebrow: 'Product evidence',
+      title: 'Work you can see.',
+      description:
+        'A visual layer of real product surfaces, showing how ideas become usable systems.',
+      projects: [
+        {
+          name: 'VCOS',
+          label: 'Product system',
+          status: 'Latest progress',
+          summary:
+            'Vehicle-care operating system with vehicle memory, quick intake, evidence, and workshop flow.',
+          bullets: [
+            'Vehicle memory and visit history',
+            'Quick entry and smart search',
+            'Evidence capture foundations',
+            'Workshop board and task flow',
+          ],
+          image: {
+            src: '/work/vcos/vcos-evidence-main-2.png',
+            alt: 'VCOS product mockups showing vehicle intake, care history, and workshop flow.',
+          },
+        },
+        {
+          name: 'DosNidos',
+          label: 'Mobile app',
+          status: 'Latest progress',
+          summary:
+            'Calm co-parenting mobile app for agenda, shared transitions, home summary, and event detail.',
+          bullets: [
+            'Agenda flow refinements',
+            'Shared transitions and responsibilities',
+            'Home summary improvements',
+            'Event detail and notes',
+          ],
+          image: {
+            src: '/work/dosnidos/dosnidos-evidence-main-1.png',
+            alt: 'DosNidos mobile app mockups showing home, agenda, and event detail screens.',
+          },
+        },
+        {
+          name: 'J414',
+          label: 'Web platform',
+          status: 'Live site',
+          summary:
+            'Production multilingual B2B landing for reusable bottle circulation, sector messaging, demo request, and contact flow.',
+          bullets: [
+            'Multilingual public launch',
+            'Responsive experience polish',
+            'Live demo request flow',
+            'Production deployment on j414.eu',
+          ],
+          href: 'https://j414.eu',
+          actionLabel: 'View live site',
+          image: {
+            src: '/work/j414/j414-evidence-main-1.png',
+            alt: 'J414 live website mockup showing the reusable bottle landing page.',
+          },
+        },
+      ],
+    },
   },
 
   es: {
@@ -207,6 +288,67 @@ export const localizedProfiles = {
           'Transición desde trabajo anterior orientado al cliente hacia desarrollo de software mediante aprendizaje estructurado y construcción práctica de productos, con atención fuerte a fundamentos y razonamiento.',
       },
     ],
+    evidence: {
+      eyebrow: 'Evidencia de producto',
+      title: 'Trabajo que se puede ver.',
+      description:
+        'Una capa visual de superficies reales de producto: cómo las ideas se convierten en sistemas utilizables.',
+      projects: [
+        {
+          name: 'VCOS',
+          label: 'Sistema de producto',
+          status: 'Progreso reciente',
+          summary:
+            'Sistema operativo para cuidado de vehículos con memoria del vehículo, entrada rápida, evidencias y flujo de taller.',
+          bullets: [
+            'Memoria del vehículo e historial de visitas',
+            'Entrada rápida y búsqueda inteligente',
+            'Base para captura de evidencias',
+            'Workshop board y flujo de tareas',
+          ],
+          image: {
+            src: '/work/vcos/vcos-evidence-main-2.png',
+            alt: 'Mockups de VCOS mostrando entrada de vehículos, historial de cuidado y flujo de taller.',
+          },
+        },
+        {
+          name: 'DosNidos',
+          label: 'App móvil',
+          status: 'Progreso reciente',
+          summary:
+            'App móvil tranquila de coparentalidad para agenda, traslados compartidos, resumen del día y detalle de eventos.',
+          bullets: [
+            'Refinamiento del flujo de agenda',
+            'Traslados y responsabilidades compartidas',
+            'Mejoras en el resumen de Home',
+            'Detalle de evento y notas',
+          ],
+          image: {
+            src: '/work/dosnidos/dosnidos-evidence-main-1.png',
+            alt: 'Mockups de DosNidos mostrando pantallas de Home, agenda y detalle de evento.',
+          },
+        },
+        {
+          name: 'J414',
+          label: 'Web de producto',
+          status: 'Sitio en vivo',
+          summary:
+            'Landing B2B multilingüe en producción para circulación de botellas reutilizables, mensajes por sector, solicitud de demo y flujo de contacto.',
+          bullets: [
+            'Lanzamiento público multilingüe',
+            'Pulido responsive de la experiencia',
+            'Flujo real de solicitud de demo',
+            'Despliegue en producción en j414.eu',
+          ],
+          href: 'https://j414.eu',
+          actionLabel: 'Ver sitio en vivo',
+          image: {
+            src: '/work/j414/j414-evidence-main-1.png',
+            alt: 'Mockup del sitio web J414 mostrando la landing de botellas reutilizables.',
+          },
+        },
+      ],
+    },
   },
 
   ca: {
@@ -351,6 +493,67 @@ export const localizedProfiles = {
           'Transició des de feina anterior orientada al client cap al desenvolupament de programari mitjançant aprenentatge estructurat i construcció pràctica de productes, amb molta atenció als fonaments i al raonament.',
       },
     ],
+    evidence: {
+      eyebrow: 'Evidència de producte',
+      title: 'Treball que es pot veure.',
+      description:
+        'Una capa visual de superfícies reals de producte: com les idees es converteixen en sistemes utilitzables.',
+      projects: [
+        {
+          name: 'VCOS',
+          label: 'Sistema de producte',
+          status: 'Progrés recent',
+          summary:
+            'Sistema operatiu per a la cura de vehicles amb memòria del vehicle, entrada ràpida, evidències i flux de taller.',
+          bullets: [
+            'Memòria del vehicle i historial de visites',
+            'Entrada ràpida i cerca intel·ligent',
+            'Base per a captura d’evidències',
+            'Workshop board i flux de tasques',
+          ],
+          image: {
+            src: '/work/vcos/vcos-evidence-main-2.png',
+            alt: 'Mockups de VCOS mostrant entrada de vehicles, historial de cura i flux de taller.',
+          },
+        },
+        {
+          name: 'DosNidos',
+          label: 'App mòbil',
+          status: 'Progrés recent',
+          summary:
+            'App mòbil tranquil·la de coparentalitat per a agenda, trasllats compartits, resum del dia i detall d’esdeveniments.',
+          bullets: [
+            'Refinament del flux d’agenda',
+            'Trasllats i responsabilitats compartides',
+            'Millores en el resum de Home',
+            'Detall d’esdeveniment i notes',
+          ],
+          image: {
+            src: '/work/dosnidos/dosnidos-evidence-main-1.png',
+            alt: 'Mockups de DosNidos mostrant pantalles de Home, agenda i detall d’esdeveniment.',
+          },
+        },
+        {
+          name: 'J414',
+          label: 'Web de producte',
+          status: 'Lloc en viu',
+          summary:
+            'Landing B2B multilingüe en producció per a circulació d’ampolles reutilitzables, missatges per sector, sol·licitud de demo i flux de contacte.',
+          bullets: [
+            'Llançament públic multilingüe',
+            'Polit responsive de l’experiència',
+            'Flux real de sol·licitud de demo',
+            'Desplegament en producció a j414.eu',
+          ],
+          href: 'https://j414.eu',
+          actionLabel: 'Veure el lloc en viu',
+          image: {
+            src: '/work/j414/j414-evidence-main-1.png',
+            alt: 'Mockup del lloc web J414 mostrant la landing d’ampolles reutilitzables.',
+          },
+        },
+      ],
+    },
   },
 } satisfies Record<Locale, LocalizedProfile>;
 
