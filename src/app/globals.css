@@ -724,3 +724,104 @@ a {
     margin-top: 3px;
   }
 }
+
+/* Professional color polish */
+
+:root {
+  --accent: #ff7a1a;
+  --accent-sand: rgba(255, 122, 26, 0.075);
+  --accent-rose: rgba(255, 166, 202, 0.075);
+  --accent-mint: rgba(158, 228, 199, 0.075);
+  --accent-blue: rgba(184, 216, 255, 0.075);
+}
+
+body {
+  background:
+    radial-gradient(circle at 86% 10%, rgba(255, 122, 26, 0.055), transparent 23rem),
+    radial-gradient(circle at 10% 92%, rgba(255, 166, 202, 0.055), transparent 26rem),
+    var(--background);
+}
+
+.hero {
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 3px;
+  margin-top: 46px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ff7a1a, #ffd36a);
+}
+
+
+
+
+
+
+.skillCard {
+  position: relative;
+  overflow: hidden;
+}
+
+.skillCard > * {
+  position: relative;
+  z-index: 1;
+}
+
+.skillCard::after {
+  content: "";
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(255, 122, 26, 0.24);
+  pointer-events: none;
+}
+
+.skillCard:nth-child(2)::after {
+  background: rgba(158, 228, 199, 0.28);
+}
+
+.skillCard:nth-child(3)::after {
+  background: rgba(184, 216, 255, 0.3);
+}
+
+.skillCard:nth-child(4)::after {
+  background: rgba(255, 203, 87, 0.3);
+}
+
+.skillCard:nth-child(5)::after {
+  background: rgba(255, 166, 202, 0.28);
+}
+
+.footerLinks a:hover {
+  border-color: rgba(255, 122, 26, 0.28);
+  background: rgba(255, 255, 255, 0.76);
+}
+
+@media print {
+  body {
+    background: white;
+  }
+
+  .hero::after,
+  .projectCard::after,
+  .skillCard {
+  position: relative;
+  overflow: hidden;
+}
+
+.skillCard > * {
+  position: relative;
+  z-index: 1;
+}
+
+.skillCard::after {
+    display: none;
+  }
+}

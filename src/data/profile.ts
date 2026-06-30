@@ -18,7 +18,7 @@ export const profile = {
     email: 'honomonodev@gmail.com',
     github: 'https://github.com/2nidosapp',
     website: 'https://roman-cv.vercel.app',
-    site: 'https://YOUR-VERCEL-URL.vercel.app',
+    site: 'https://roman-cv.vercel.app',
   },
 };
 
