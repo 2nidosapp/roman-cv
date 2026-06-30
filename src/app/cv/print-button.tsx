@@ -1,9 +1,13 @@
 'use client';
 
-export function PrintButton() {
+type PrintButtonProps = {
+  label?: string;
+};
+
+export function PrintButton({ label = 'Save as PDF' }: PrintButtonProps) {
   return (
     <button className="printButton" type="button" onClick={() => window.print()}>
-      Save as PDF
+      {label}
     </button>
   );
 }
