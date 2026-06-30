@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
+import { LanguageSwitcher } from '@/components/language-switcher';
 import { getLocalizedProfile } from '@/data/localized-profile';
 import { isLocale, locales } from '@/i18n/config';
 import { PrintButton } from '@/app/cv/print-button';
@@ -29,6 +30,7 @@ export default async function LocalizedCvPage({ params }: LocalizedCvPageProps) 
     <main className="cvPage">
       <div className="cvToolbar">
         <Link href={`/${localeParam}`}>← {labels.portfolio}</Link>
+        <LanguageSwitcher currentLocale={localeParam} page="cv" />
         <PrintButton label={labels.saveAsPdf} />
       </div>
 

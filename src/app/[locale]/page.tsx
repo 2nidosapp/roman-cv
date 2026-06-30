@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
+import { LanguageSwitcher } from '@/components/language-switcher';
 import { getLocalizedProfile } from '@/data/localized-profile';
 import { isLocale, locales } from '@/i18n/config';
 
@@ -39,6 +40,7 @@ export default async function LocalizedHome({ params }: LocalizedPageProps) {
           <a href="#stack">{labels.stack}</a>
           <a href="#experience">{labels.experience}</a>
           <Link href={cvHref}>{labels.cv}</Link>
+          <LanguageSwitcher currentLocale={localeParam} page="home" />
         </nav>
       </header>
 
